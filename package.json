@@ -1,0 +1,23 @@
+{
+  "name": "emoji-picker",
+  "version": "1.0.0",
+  "description": "Application for finding and copying emoji's",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gautemo/emoji-picker.git"
+  },
+  "author": "Gaute Meek Olsen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gautemo/emoji-picker/issues"
+  },
+  "homepage": "https://github.com/gautemo/emoji-picker#readme",
+  "devDependencies": {
+    "electron": "^9.1.2"
+  }
+}
