@@ -1,0 +1,17 @@
+{
+  "name": "scraper",
+  "version": "1.0.0",
+  "description": "scrape emoji website and save all emojis in json file",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "scrape": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gaute Meek Olsen",
+  "license": "ISC",
+  "dependencies": {
+    "jsdom": "^16.3.0",
+    "node-fetch": "^2.6.0"
+  }
+}
