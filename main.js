@@ -7,7 +7,9 @@ function createWindow() {
     height: 600,
     webPreferences: {
       nodeIntegration: true
-    }
+    },
+    autoHideMenuBar: true,
+    icon: 'emoji-picker-icon.png'
   })
 
   // and load the index.html of the app.
