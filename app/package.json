@@ -6,6 +6,7 @@
     "build": "vite build"
   },
   "dependencies": {
+    "clipboard": "^2.0.6",
     "vue": "^3.0.0-rc.1"
   },
   "devDependencies": {

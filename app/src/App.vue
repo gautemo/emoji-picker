@@ -1,15 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3.0 + Vite" />
+  <emoji v-for="emoji in emojis" :key="emoji.name" :name="emoji.name" :emoji="emoji.emoji"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Emoji from './components/Emoji.vue'
+import emojis from './assets/emojis.json'
 
 export default {
   name: 'App',
+  setup(){
+    return {emojis}
+  },
   components: {
-    HelloWorld
+    Emoji
   }
 }
 </script>

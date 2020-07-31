@@ -20,5 +20,5 @@ fetch("https://unicode.org/emoji/charts/full-emoji-list.html")
 
       }
     }
-    fs.writeFile('emojis.json', JSON.stringify(emojis, null, 2), 'utf-8', () => console.log('done'))
+    fs.writeFile('../app/src/assets/emojis.json', JSON.stringify(emojis, null, 2), 'utf-8', () => console.log('done'))
   })
