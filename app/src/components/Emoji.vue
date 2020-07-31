@@ -1,5 +1,5 @@
 <template>
-  <button @click="copy" :title="name">{{emoji}}</button>
+  <button @click="copy" :title="name" class="emoji">{{emoji}}</button>
 </template>
 
 <script>
@@ -14,7 +14,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

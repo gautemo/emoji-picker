@@ -1,0 +1,22 @@
+body{
+  margin: 0;
+}
+
+.emoji-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 5em);
+  gap: 15px 2px;
+  align-content: start;
+  justify-content: center;
+}
+
+.emoji{
+  font-size: 2em;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  height: fit-content;
+}
