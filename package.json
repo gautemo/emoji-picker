@@ -4,7 +4,10 @@
   "description": "Application for finding and copying emoji's",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
+    "dev": "npm run dev --prefix app",
+    "start": "npm run build --prefix app && electron .",
+    "build": "npm run build --prefix app && electron-packager . --icon app-icon.ico --out ./dist --overwrite --ignore=\"scraper|app\"",
+    "update-emojis": "npm run scrape --prefix scraper",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +21,7 @@
   },
   "homepage": "https://github.com/gautemo/emoji-picker#readme",
   "devDependencies": {
-    "electron": "^9.1.2"
+    "electron": "^9.1.2",
+    "electron-packager": "^15.0.0"
   }
 }
