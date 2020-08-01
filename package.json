@@ -1,5 +1,5 @@
 {
-  "name": "emoji-picker",
+  "name": "EmojisPicker",
   "version": "1.0.0",
   "description": "Application for finding and copying emoji's",
   "main": "main.js",

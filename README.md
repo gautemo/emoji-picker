@@ -26,3 +26,19 @@ npm run start
 npm run build
 ```
 See `dist` folder
+
+## Microsoft Store
+Guide [electronjs.org](https://www.electronjs.org/docs/tutorial/windows-store-guide) or [github - electron-windows-store](https://github.com/felixrieseberg/electron-windows-store)
+
+Open Microsoft Partner Center and go to app and open Product Identity for values to use
+
+Run in Powershell as admin:
+```
+electron-windows-store --input-directory [PATH] --output-directory [PATH] --package-version 1.0.0.0 --package-name EmojisPicker --package-display-name="Emojis Picker" --publisher-display-name="Gaute Meek Olsen" --publisher [Package/Identity/Publisher] --identity-name [Package/Identity/Name]
+```
+
+At the moment there is a bug with electron-windows-store:
+```
+    identityName: '12345MyCompany.Ghost',  // This is actually the package name!
+    packageName: 'Ghost',  // This is actually the application id!!
+```
