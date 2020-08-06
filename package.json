@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npm run dev --prefix app",
     "start": "npm run build --prefix app && electron .",
-    "build": "npm run build --prefix app && electron-packager . --icon icon.ico --out ./dist --overwrite --ignore=\"scraper|app\"",
+    "build": "npm run build --prefix app && electron-packager . --icon icon.ico --out ./dist --overwrite --ignore=\"scraper|app|microsoft-store\"",
     "update-emojis": "npm run scrape --prefix scraper",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
