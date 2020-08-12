@@ -34,7 +34,9 @@ Open Microsoft Partner Center and go to app and open Product Identity for values
 
 Run in Powershell as admin:
 ```
-electron-windows-store --input-directory [PATH] --output-directory [PATH] --package-version 1.0.0.0 --package-name EmojisPicker --package-display-name="Emojis Picker" --publisher-display-name="Gaute Meek Olsen" --publisher [Package/Identity/Publisher] --identity-name [Package/Identity/Name]
+cd [folder]
+
+electron-windows-store --input-directory dist\EmojisPicker-win32-x64 --output-directory microsoft-store --assets appx --package-version 1.0.0.0 --package-name EmojisPicker --package-display-name="Emojis Picker" --publisher-display-name="Gaute Meek Olsen" --publisher [Package/Identity/Publisher] --identity-name [Package/Identity/Name]
 ```
 
 At the moment there is a bug with electron-windows-store:
