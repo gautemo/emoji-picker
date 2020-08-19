@@ -18,14 +18,14 @@ const getCategory = async (subpath, category) => {
 }
 
 const addCategoriesToFile = async () => {
-  const c1 = getCategory('people', '😃 Smileys & People')
-  const c2 = getCategory('nature', '🐻 Animals & Nature')
-  const c3 = getCategory('food-drink', '🍔 Food & Drink')
-  const c4 = getCategory('activity', '⚽ Activity')
-  const c5 = getCategory('travel-places', '🌇 Travel & Places')
-  const c6 = getCategory('objects', '💡 Objects')
-  const c7 = getCategory('symbols', '❤️ Symbols')
-  const c8 = getCategory('flags', '🎌 Flags')
+  const c1 = getCategory('people', '😃\nSmileys & People')
+  const c2 = getCategory('nature', '🐻\nAnimals & Nature')
+  const c3 = getCategory('food-drink', '🍔\nFood & Drink')
+  const c4 = getCategory('activity', '⚽\nActivity')
+  const c5 = getCategory('travel-places', '🌇\nTravel & Places')
+  const c6 = getCategory('objects', '💡\nObjects')
+  const c7 = getCategory('symbols', '❤️\nSymbols')
+  const c8 = getCategory('flags', '🎌\nFlags')
   const emojis = await Promise.all([c1, c2, c3, c4, c5, c6, c7, c8])
   fs.writeFile('../app/src/assets/emojis.json', JSON.stringify(emojis, null, 2), 'utf-8', () => console.log('done'))
 }

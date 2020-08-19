@@ -16,6 +16,7 @@ label{
 }
 
 input{
+  width: 100px;
   flex: 1;
   border-radius: 20px 100px 100px 20px;
   height: 100%;
