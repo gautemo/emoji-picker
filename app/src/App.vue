@@ -5,8 +5,8 @@
     <div class="categories">
       <button v-for="category in categories" :key="category" @click="toggleFilter(category)" :class="{active: filter === category}">{{category}}</button>
     </div>
-    <div class="emoji-list">
-      <emoji v-for="emoji in showEmojis" :key="emoji.name" :name="emoji.name" :emoji="emoji.emoji"/>
+    <div class="emoji-content">
+      <emojisCategory v-for="e in showEmojis" :key="e.category" :category="e.category" :emojis="e.emojis" :search="search"/>
     </div>
   </main>
 </template>
@@ -16,6 +16,7 @@ import { ref, computed } from 'vue'
 
 import Emoji from './components/Emoji.vue'
 import Search from './components/Search.vue'
+import EmojisCategory from './components/EmojisCategory.vue'
 import emojis from './assets/emojis.json'
 
 const categories = emojis.map(e => e.category)
@@ -34,12 +35,13 @@ export default {
       }
     }
     
-    const showEmojis = []//computed(() => emojis.filter(e => search.value.length === 0 || e.name.includes(search.value)))
+    const showEmojis = computed(() => emojis.filter(e => filter.value.length === 0 || filter.value === e.category))
     return {showEmojis, search, categories, filter, toggleFilter}
   },
   components: {
     Emoji,
-    Search
+    Search,
+    EmojisCategory
   }
 }
 </script>
@@ -51,7 +53,7 @@ main{
   grid-template-rows: auto auto auto 1fr;
 }
 
-.emoji-list{
+.emoji-content{
   overflow: auto;
 }
 

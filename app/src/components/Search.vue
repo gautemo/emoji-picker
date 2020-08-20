@@ -12,7 +12,7 @@ label{
   padding: 3px 3px 3px 15px;
   border-radius: 100px;
   display: flex;
-  font-size: 2em;
+  font-size: 1.7em;
 }
 
 input{
