@@ -1,7 +1,7 @@
 <template>
   <main>
     <search v-model:text="search"/>
-    <p>Click to copy</p>
+    <p class="instruction">Click to copy</p>
     <div class="categories">
       <button v-for="category in categories" :key="category" @click="toggleFilter(category)" :class="{active: filter === category}">{{category}}</button>
     </div>
@@ -10,6 +10,7 @@
       <search-emojis :emojis="searchEmojis" :search="search"/>
     </div>
   </main>
+  <copied/>
 </template>
 
 <script>
@@ -19,6 +20,7 @@ import Emoji from './components/Emoji.vue'
 import Search from './components/Search.vue'
 import EmojisCategory from './components/EmojisCategory.vue'
 import SearchEmojis from './components/SearchEmojis.vue'
+import Copied from './components/Copied.vue'
 import emojis from './assets/emojis.json'
 
 const categories = emojis.map(e => e.category)
@@ -56,7 +58,8 @@ export default {
     Emoji,
     Search,
     EmojisCategory,
-    SearchEmojis
+    SearchEmojis,
+    Copied
   }
 }
 </script>
@@ -72,7 +75,7 @@ main{
   overflow: auto;
 }
 
-p{
+.instruction{
   margin: 5px 25px;
   text-decoration: underline;
   font-style: italic;

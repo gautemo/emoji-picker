@@ -1,16 +1,17 @@
 <template>
-  <button @click="copy" :title="description" class="emoji">{{emoji}}</button>
+  <button @click="copy(emoji)" :title="description" class="emoji">{{emoji}}</button>
 </template>
 
 <script>
+import { copy } from '../composable/copy.js'
+
 export default {
   props: {
     emoji: String,
     description: String
   },
-  setup({emoji}){
-    const copy = () => navigator.clipboard.writeText(emoji)
-    return {copy}
+  setup(){
+    return { copy }
   }
 }
 </script>
