@@ -1,9 +1,29 @@
 <template>
   <label>
     Search
-    <input type="text" @input="$emit('update:text', $event.target.value)">
+    <input type="text" @input="onInput($event.target.value)">
   </label>
 </template>
+
+<script>
+let debounceTimer;
+const debounce = (func, time) => {
+  if(debounceTimer){
+    clearTimeout(debounceTimer);
+    debounceTimer = null;
+  }
+  debounceTimer = setTimeout(func, time);
+}
+
+export default {
+  setup(props, {emit}){
+    const onInput = value => {
+      debounce(() => emit('update:text', value), 170)
+    }
+    return { onInput }
+  }
+}
+</script>
 
 <style scoped>
 label{

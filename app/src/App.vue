@@ -6,7 +6,8 @@
       <button v-for="category in categories" :key="category" @click="toggleFilter(category)" :class="{active: filter === category}">{{category}}</button>
     </div>
     <div class="emoji-content">
-      <emojisCategory v-for="e in showEmojis" :key="e.category" :category="e.category" :emojis="e.emojis" :search="search"/>
+      <emojis-category v-for="e in categoryEmojis" :key="e.category" :category="e.category" :emojis="e.emojis"/>
+      <search-emojis :emojis="searchEmojis" :search="search"/>
     </div>
   </main>
 </template>
@@ -17,6 +18,7 @@ import { ref, computed } from 'vue'
 import Emoji from './components/Emoji.vue'
 import Search from './components/Search.vue'
 import EmojisCategory from './components/EmojisCategory.vue'
+import SearchEmojis from './components/SearchEmojis.vue'
 import emojis from './assets/emojis.json'
 
 const categories = emojis.map(e => e.category)
@@ -35,13 +37,26 @@ export default {
       }
     }
     
-    const showEmojis = computed(() => emojis.filter(e => filter.value.length === 0 || filter.value === e.category))
-    return {showEmojis, search, categories, filter, toggleFilter}
+    const filteredEmojis = computed(() => emojis.filter(e => filter.value.length === 0 || filter.value === e.category))
+    const categoryEmojis = computed(() => {
+      if(search.value.length === 0){
+        return filteredEmojis.value
+      }
+      return []
+    })
+    const searchEmojis = computed(() => {
+      if(search.value.length === 0){
+        return []
+      }
+      return filteredEmojis.value.flatMap(e => e.emojis)
+    })
+    return {categoryEmojis, searchEmojis, search, categories, filter, toggleFilter}
   },
   components: {
     Emoji,
     Search,
-    EmojisCategory
+    EmojisCategory,
+    SearchEmojis
   }
 }
 </script>
