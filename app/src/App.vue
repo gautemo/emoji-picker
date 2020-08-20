@@ -3,7 +3,7 @@
     <search v-model:text="search"/>
     <p>Click to copy</p>
     <div class="categories">
-      <button v-for="category in categories" :key="category">{{category}}</button>
+      <button v-for="category in categories" :key="category" @click="toggleFilter(category)" :class="{active: filter === category}">{{category}}</button>
     </div>
     <div class="emoji-list">
       <emoji v-for="emoji in showEmojis" :key="emoji.name" :name="emoji.name" :emoji="emoji.emoji"/>
@@ -24,8 +24,18 @@ export default {
   name: 'App',
   setup(){
     const search = ref('')
+    
+    const filter = ref('')
+    const toggleFilter = category => {
+      if(filter.value === category){
+        filter.value = ''
+      }else{
+        filter.value = category
+      }
+    }
+    
     const showEmojis = []//computed(() => emojis.filter(e => search.value.length === 0 || e.name.includes(search.value)))
-    return {showEmojis, search, categories}
+    return {showEmojis, search, categories, filter, toggleFilter}
   },
   components: {
     Emoji,
@@ -61,7 +71,7 @@ p{
 }
 
 .categories button{
-  font-size: 1.1em;
+  font-size: 1.05em;
   background: none;
   border: 3px solid #fda085;
   border-radius: 3px;
@@ -74,6 +84,11 @@ p{
 
 .categories button.active{
   background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  border-color: #8d21dc; /*#21dcbd;*/
+}
+
+.categories button:focus{
+  outline: none;
   border-color: #8d21dc; /*#21dcbd;*/
 }
 
