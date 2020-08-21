@@ -87,7 +87,7 @@ section{
 }
 
 .emoji-content{
-  padding-top: 5px;
+  padding: 5px 0;
 }
 
 .instruction{

@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/gautemo/emoji-picker#readme",
   "devDependencies": {
-    "electron": "^9.1.2",
-    "electron-packager": "^15.0.0"
+    "electron": "^9.2.1",
+    "electron-packager": "^15.1.0"
   }
 }
