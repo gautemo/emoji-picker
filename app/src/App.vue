@@ -7,6 +7,7 @@
         <button v-for="category in categories" :key="category" @click="toggleFilter(category)" :class="{active: filter === category}">{{category}}</button>
       </div>
       <div class="emoji-content">
+        <recently-used/>
         <emojis-category v-for="e in categoryEmojis" :key="e.category" :category="e.category" :emojis="e.emojis"/>
         <search-emojis :emojis="searchEmojis" :search="search"/>
       </div>
@@ -23,6 +24,7 @@ import Search from './components/Search.vue'
 import EmojisCategory from './components/EmojisCategory.vue'
 import SearchEmojis from './components/SearchEmojis.vue'
 import Copied from './components/Copied.vue'
+import RecentlyUsed from './components/RecentlyUsed.vue'
 import emojis from './assets/emojis.json'
 
 const categories = emojis.map(e => e.category)
@@ -61,7 +63,8 @@ export default {
     Search,
     EmojisCategory,
     SearchEmojis,
-    Copied
+    Copied,
+    RecentlyUsed
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <button @click="copy(emoji)" :title="description" class="emoji">{{emoji}}</button>
+  <button @click="copy({emoji, description})" :title="description" class="emoji">{{emoji}}</button>
 </template>
 
 <script>

@@ -1,4 +1,5 @@
 import { ref } from 'vue'
+import { addToRecently } from './recentlyUsed.js'
 
 const copied = ref('')
 let timer
@@ -8,8 +9,9 @@ const copy = emoji => {
     clearTimeout(timer)
     timer = null
   }
-  navigator.clipboard.writeText(emoji)
-  copied.value = emoji
+  navigator.clipboard.writeText(emoji.emoji)
+  addToRecently(emoji)
+  copied.value = emoji.emoji
   timer = setTimeout(() => copied.value = '', 2000)
 }
 
