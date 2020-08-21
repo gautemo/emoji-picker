@@ -3,11 +3,11 @@
     <search v-model:text="search"/>
     <p class="instruction">Click to copy</p>
     <section>
-      <div class="categories" v-show="search.length === 0">
+      <div class="categories" v-show="!search">
         <button v-for="category in categories" :key="category" @click="toggleFilter(category)" :class="{active: filter === category}">{{category}}</button>
       </div>
       <div class="emoji-content">
-        <recently-used v-if="search.length === 0"/>
+        <recently-used v-if="!search && !filter"/>
         <emojis-category v-for="e in categoryEmojis" :key="e.category" :category="e.category" :emojis="e.emojis"/>
         <search-emojis :emojis="searchEmojis" :search="search"/>
       </div>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, watchEffect } from 'vue'
 
 import Emoji from './components/Emoji.vue'
 import Search from './components/Search.vue'
@@ -42,6 +42,12 @@ export default {
         filter.value = category
       }
     }
+
+    watchEffect(() => {
+      if(search.value){
+        filter.value = ''
+      }
+    })
     
     const filteredEmojis = computed(() => emojis.filter(e => filter.value.length === 0 || filter.value === e.category))
     const categoryEmojis = computed(() => {
