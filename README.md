@@ -36,7 +36,7 @@ Run in Powershell as admin:
 ```
 cd [folder]
 
-electron-windows-store --input-directory dist\EmojisPicker-win32-x64 --output-directory microsoft-store --assets appx --package-version 1.0.0.0 --package-name EmojisPicker --package-display-name="Emojis Picker" --publisher-display-name="Gaute Meek Olsen" --publisher [Package/Identity/Publisher] --identity-name [Package/Identity/Name]
+electron-windows-store --input-directory dist\EmojisPicker-win32-x64 --output-directory microsoft-store --assets appx --package-version 2.0.0.0 --package-name EmojisPicker --package-display-name="Emojis Picker" --publisher-display-name="Gaute Meek Olsen" --publisher [Package/Identity/Publisher] --identity-name [Package/Identity/Name]
 ```
 
 At the moment there is a bug with electron-windows-store:

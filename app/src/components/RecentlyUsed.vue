@@ -19,3 +19,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.category{
+  margin: 0 0 10px 25px;
+}
+</style>

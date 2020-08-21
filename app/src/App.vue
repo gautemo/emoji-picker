@@ -3,11 +3,11 @@
     <search v-model:text="search"/>
     <p class="instruction">Click to copy</p>
     <section>
-      <div class="categories">
+      <div class="categories" v-show="search.length === 0">
         <button v-for="category in categories" :key="category" @click="toggleFilter(category)" :class="{active: filter === category}">{{category}}</button>
       </div>
       <div class="emoji-content">
-        <recently-used/>
+        <recently-used v-if="search.length === 0"/>
         <emojis-category v-for="e in categoryEmojis" :key="e.category" :category="e.category" :emojis="e.emojis"/>
         <search-emojis :emojis="searchEmojis" :search="search"/>
       </div>
@@ -80,11 +80,15 @@ section{
   overflow: auto;
 }
 
+.emoji-content{
+  padding-top: 5px;
+}
+
 .instruction{
   text-decoration: underline;
   font-style: italic;
   font-size: 1.2em;
-  box-shadow: 0px 4px 8px 5px #ffffff;
+  box-shadow: 0px 1px 8px 5px #ffffff;
   padding: 5px 25px;
   margin: 0;
   z-index: 1;
