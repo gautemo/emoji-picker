@@ -9,7 +9,7 @@ const addToRecently = emoji => {
   if(existAt !== -1){
     recently.value.splice(existAt, 1)
   }
-  recently.value.splice(8)
+  recently.value.splice(15)
   recently.value = [emoji, ...recently.value]
   localStorage.setItem('latest', JSON.stringify(recently.value))
 }
