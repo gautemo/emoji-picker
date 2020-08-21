@@ -2,13 +2,15 @@
   <main>
     <search v-model:text="search"/>
     <p class="instruction">Click to copy</p>
-    <div class="categories">
-      <button v-for="category in categories" :key="category" @click="toggleFilter(category)" :class="{active: filter === category}">{{category}}</button>
-    </div>
-    <div class="emoji-content">
-      <emojis-category v-for="e in categoryEmojis" :key="e.category" :category="e.category" :emojis="e.emojis"/>
-      <search-emojis :emojis="searchEmojis" :search="search"/>
-    </div>
+    <section>
+      <div class="categories">
+        <button v-for="category in categories" :key="category" @click="toggleFilter(category)" :class="{active: filter === category}">{{category}}</button>
+      </div>
+      <div class="emoji-content">
+        <emojis-category v-for="e in categoryEmojis" :key="e.category" :category="e.category" :emojis="e.emojis"/>
+        <search-emojis :emojis="searchEmojis" :search="search"/>
+      </div>
+    </section>
   </main>
   <copied/>
 </template>
@@ -68,18 +70,21 @@ export default {
 main{
   height: 100vh;
   display: grid;
-  grid-template-rows: auto auto auto 1fr;
+  grid-template-rows: auto auto 1fr;
 }
 
-.emoji-content{
+section{
   overflow: auto;
 }
 
 .instruction{
-  margin: 5px 25px;
   text-decoration: underline;
   font-style: italic;
   font-size: 1.2em;
+  box-shadow: 0px 4px 8px 5px #ffffff;
+  padding: 5px 25px;
+  margin: 0;
+  z-index: 1;
 }
 
 .categories{
